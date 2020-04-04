@@ -1,4 +1,5 @@
-import React from 'react'
+import React ,{useEffect}from 'react'
+import { useDispatch,useSelector } from 'react-redux'
 import {
   BrowserRouter as Router,
   BrowserRouter,
@@ -10,6 +11,24 @@ import {
 import './sass/home.scss'
 
 function Home() {
+
+
+  async function getData (){
+    const request = new Request('http://styg51201/github.io/testapp/data/data.json', {
+    method: 'GET',
+    credentials: 'include',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      })
+  })
+  const res = await fetch(request)
+  const val = await res.json()
+
+  useEffect(()=>{
+    
+  },[])
+
   return (
     <>
     <BrowserRouter basename={ process.env.PUBLIC_URL }>
@@ -73,6 +92,10 @@ function Home() {
             <h1>
                 產品
             </h1>
+            <button class="getData" onClick={()=>{
+              getData()
+              console.log(val)
+            }}>取得資料</button>
           </Route>
           <Route path='/cart'>
             <h1>

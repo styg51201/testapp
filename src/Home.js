@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Link,
   Switch,
@@ -11,7 +12,7 @@ import './sass/home.scss'
 function Home() {
   return (
     <>
-    <Router basename={ process.env.PUBLIC_URL }>
+    <BrowserRouter basename={ process.env.PUBLIC_URL }>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <Link className="navbar-brand" to="/">
           logo
@@ -79,7 +80,7 @@ function Home() {
             </h1>
           </Route>
         </Switch>
-      </Router>
+      </BrowserRouter>
 
     </>
   )

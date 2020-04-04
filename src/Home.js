@@ -11,7 +11,7 @@ import './sass/home.scss'
 function Home() {
   return (
     <>
-    <Router>
+    <Router basename={ process.env.PUBLIC_URL }>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <Link className="navbar-brand" to="/">
           logo

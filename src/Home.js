@@ -1,13 +1,21 @@
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  NavLink,
+} from 'react-router-dom'
 import './sass/home.scss'
 
 function Home() {
   return (
     <>
+    <Router>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           logo
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -22,35 +30,57 @@ function Home() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a
+              <Link
                 exact
                 activeClassName="active"
                 className="nav-link"
-                href="/"
+                to="/productsList"
               >
                 產品列表
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 activeClassName="active"
                 className="nav-link"
-                href="/product"
+                to="/products"
               >
                 產品
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a activeClassName="active" className="nav-link" href="/cart">
+              <Link activeClassName="active" className="nav-link" to="/cart">
                 購物車
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
       </nav>
-      <h1>
-          哈哈哈
-      </h1>
+      
+        <Switch>
+          <Route exact path='/'>
+            <h1>
+                首頁
+            </h1>
+          </Route>
+          <Route  path='/productsList'>
+            <h1>
+                產品列表
+            </h1>
+          </Route>
+          <Route path='/products'>
+            <h1>
+                產品
+            </h1>
+          </Route>
+          <Route path='/cart'>
+            <h1>
+                購物車
+            </h1>
+          </Route>
+        </Switch>
+      </Router>
+
     </>
   )
 }

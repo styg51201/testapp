@@ -1,4 +1,4 @@
-import React ,{useEffect}from 'react'
+import React ,{useState,useEffect}from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import {
   BrowserRouter as Router,
@@ -10,8 +10,9 @@ import {
 } from 'react-router-dom'
 import './sass/home.scss'
 
-function Home() {
+const Home = function () {
 
+  const [state,setState]= useState({})
 
   async function getData (){
     const request = new Request('http://styg51201/github.io/testapp/data/data.json', {
@@ -24,6 +25,8 @@ function Home() {
   })
   const res = await fetch(request)
   const val = await res.json()
+  setState(val)
+}
 
   useEffect(()=>{
     
@@ -94,7 +97,7 @@ function Home() {
             </h1>
             <button class="getData" onClick={()=>{
               getData()
-              console.log(val)
+              console.log(state)
             }}>取得資料</button>
           </Route>
           <Route path='/cart'>

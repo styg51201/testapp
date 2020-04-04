@@ -15,9 +15,8 @@ const Home = function () {
   const [state,setState]= useState({})
 
   async function getData (){
-    const request = new Request('https://styg51201/github.io/testapp/data/data.json', {
+    const request = new Request('https://styg51201.github.io/testapp/data/data.json', {
     method: 'GET',
-    credentials: 'include',
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'application/json',
